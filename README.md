@@ -9,5 +9,6 @@ Maintenance is vital to ensure our manufacturing assets operate safely and effic
 
 This paper explores this notion in a BFO context using an illustrative case study. In modelling a simple example, we have encountered many issues that are under active discussion within the industrial ontology community. We propose a formalization for maintenance state and discuss practical and ontological issues. Our main focus is on the role of maintenance state in the interplay between function realization and process participation, conditioned on a state. The paper is a call-to-arms to the ontology community to engage with defining a notion of state to support the use of ontologies and reasoning to assist in automation of industrial manufacturing processes.
 
+Please see `queries.md` for the example queries used to answer the competency questions.
 
 ### This repo contains a copy of the OWL file to accompany our conference submission of the above paper to FOMI 2021.

@@ -1,0 +1,2306 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/stasis-ontology"
+     xml:base="http://www.semanticweb.org/stasis-ontology"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:obo="http://purl.obolibrary.org/obo/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:core="http://www.industrialontologies.org/core/"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:swrl="http://www.w3.org/2003/11/swrl#"
+     xmlns:swrla="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#"
+     xmlns:swrlb="http://www.w3.org/2003/11/swrlb#"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:stasis-ontology-filter="http://www.semanticweb.org/stasis-ontology-filter#"
+     xmlns:IOFAnnotationVocabulary="http://www.industrialontologies.org/IOFAnnotationVocabulary/">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/stasis-ontology-filter">
+        <owl:versionIRI rdf:resource="http://www.semanticweb.org/stasis-ontology-filter/1.0.0"/>
+        <owl:imports rdf:resource="http://www.industrialontologies.org/core/"/>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled -->
+
+    <owl:AnnotationProperty rdf:about="http://swrl.stanford.edu/ontologies/3.3/swrla.owl#isRuleEnabled"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#disabledBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stasis-ontology-filter#disabledBy">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#disables"/>
+        <rdfs:domain>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000034"/>
+                    <rdf:Description rdf:about="http://www.industrialontologies.org/core/Capability"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:domain>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintenanceState"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#disables -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stasis-ontology-filter#disables">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000167"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintenanceState"/>
+        <rdfs:range>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000034"/>
+                    <rdf:Description rdf:about="http://www.industrialontologies.org/core/Capability"/>
+                </owl:unionOf>
+            </owl:Class>
+        </rdfs:range>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#failureToParticipateIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stasis-ontology-filter#failureToParticipateIn">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#reasoningSupport"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#functionallyDependedOnBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stasis-ontology-filter#functionallyDependedOnBy">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000194"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#functionallyDependsOn"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000034"/>
+        <rdfs:range rdf:resource="http://www.industrialontologies.org/core/Capability"/>
+        <rdfs:label>functionally depended on by</rdfs:label>
+        <rdfs:seeAlso>functionally depends on</rdfs:seeAlso>
+        <skos:definition xml:lang="en">f functionallty depended on by c =Def c functionally depends on b</skos:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#functionallyDependsOn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stasis-ontology-filter#functionallyDependsOn">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000195"/>
+        <rdfs:domain rdf:resource="http://www.industrialontologies.org/core/Capability"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000034"/>
+        <IOFAnnotationVocabulary:naturalLanguageDefinition xml:lang="en">If a Capability &apos;functionally depends on&apos; a function then it cannot be realized if the function cannot be realized and is disabled by states that disable the function.</IOFAnnotationVocabulary:naturalLanguageDefinition>
+        <rdfs:label xml:lang="en">functionally depends on</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#hasDisabledDisposition -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stasis-ontology-filter#hasDisabledDisposition">
+        <rdfs:subPropertyOf rdf:resource="http://www.industrialontologies.org/core/RO_0000091"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#hasIncapableParticipant -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stasis-ontology-filter#hasIncapableParticipant">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#reasoningSupport"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#unableToParticipateIn"/>
+        <rdfs:domain rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#hasState -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stasis-ontology-filter#hasState">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#stateOf"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintenanceState"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#initiates -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stasis-ontology-filter#initiates"/>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#kindOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stasis-ontology-filter#kindOf">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#reasoningSupport"/>
+        <rdfs:comment xml:lang="en">Inferred (and occasionally asserted) abox relation from an individual to a punned class, indicating that the individual is of the specified type. Effectively equivalent to rdfs:type, but inferred through OWL for specific situations where the class info needs to be queried ir used in rules.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#reasoningSupport -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stasis-ontology-filter#reasoningSupport">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:comment xml:lang="en">This is the root of an extra-ontological relationship hierarchy which is used in reasoning and inferencing tasks.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#stateOf -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stasis-ontology-filter#stateOf">
+        <rdfs:subPropertyOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000167"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintenanceState"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#typeDisabledBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stasis-ontology-filter#typeDisabledBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#reasoningSupport"/>
+        <rdfs:comment xml:lang="en">Relationship between a function or capability and a stasis kind (punned class) indicating that the function or capability can be disabled by a state of the specified type.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#unableToParticipateIn -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/stasis-ontology-filter#unableToParticipateIn">
+        <rdfs:subPropertyOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#reasoningSupport"/>
+        <rdfs:range rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <rdfs:comment xml:lang="en">if maintainableItem a is unableToParticipateIn process b, then a has a function that is disabled and is supposed to be realised by b but cannot due to the disablement and hence the item cannot/should not participate in the process.</rdfs:comment>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000002 -->
+
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000002">
+        <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/BFO_0000003"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000003 -->
+
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000003"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000004 -->
+
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000004">
+        <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/BFO_0000020"/>
+        <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000016 -->
+
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000016">
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000197"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://purl.obolibrary.org/obo/BFO_0000004"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000020 -->
+
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000020">
+        <owl:disjointWith rdf:resource="http://purl.obolibrary.org/obo/BFO_0000031"/>
+    </rdf:Description>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000031 -->
+
+    <rdf:Description rdf:about="http://purl.obolibrary.org/obo/BFO_0000031"/>
+    
+
+
+    <!-- http://purl.obolibrary.org/obo/BFO_0000035 -->
+
+    <owl:Class rdf:about="http://purl.obolibrary.org/obo/BFO_0000035"/>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#DegradedStasis -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#DegradedStasis">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintenanceState"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#Tier1StasisValuePartition"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#kindOf"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#DegradedStasis"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#FailedStasis"/>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#OperatingStasis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#DispositionToFail -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#DispositionToFail">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#UndesireableDisposition"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#FailedStasis -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#FailedStasis">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintenanceState"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#Tier1StasisValuePartition"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#kindOf"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#FailedStasis"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#OperatingStasis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#FailureEvent -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#FailureEvent">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000035"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#initiates"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#FailedStasis"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <IOFAnnotationVocabulary:directSource xml:lang="en">EN13306, 2017</IOFAnnotationVocabulary:directSource>
+        <IOFAnnotationVocabulary:naturalLanguageDefinition xml:lang="en">The loss of ability of an item to perform a required function</IOFAnnotationVocabulary:naturalLanguageDefinition>
+        <IOFAnnotationVocabulary:semi-formalNaturalLanguageDefinition xml:lang="en">A process boundary where some process which realizes the required function of a material artifact ceases.</IOFAnnotationVocabulary:semi-formalNaturalLanguageDefinition>
+        <rdfs:label xml:lang="en">Failure Event</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#FailureProcess -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#FailureProcess">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#DispositionToFail"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <IOFAnnotationVocabulary:naturalLanguageDefinition xml:lang="en">A Process that changes some quality born by an Artifact and causes the the Artifact to become degraded or failed</IOFAnnotationVocabulary:naturalLanguageDefinition>
+        <rdfs:label xml:lang="en">Failure Process</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#FunctioningProcess -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#FunctioningProcess">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <IOFAnnotationVocabulary:naturalLanguageDefinition xml:lang="en">A process that realises some quality or disposition of an artifact</IOFAnnotationVocabulary:naturalLanguageDefinition>
+        <rdfs:label xml:lang="en">Functioning Process</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#MaintainableItem -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#MaintainableItem">
+        <owl:equivalentClass>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000196"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintainableItemRole"/>
+            </owl:Restriction>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.industrialontologies.org/core/MaterialArtifact"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#FailureEvent"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#FunctioningProcess"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintenanceState"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <IOFAnnotationVocabulary:naturalLanguageDefinition>A component or grouping of components on which maintenance is actioned according to a maintenance strategy.</IOFAnnotationVocabulary:naturalLanguageDefinition>
+        <IOFAnnotationVocabulary:semi-formalNaturalLanguageDefinition>A maintainable item x is equivalent to a material artifact x and there exists some maintainable item role r such that x is a bearerof r.</IOFAnnotationVocabulary:semi-formalNaturalLanguageDefinition>
+        <rdfs:label xml:lang="en">Maintainable Item</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#MaintainableItemRole -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#MaintainableItemRole">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000023"/>
+        <IOFAnnotationVocabulary:naturalLanguageDefinition xml:lang="en">A maintainable item role is a role a material artifact bears when participating in the maintenance management process</IOFAnnotationVocabulary:naturalLanguageDefinition>
+        <IOFAnnotationVocabulary:semi-formalNaturalLanguageDefinition xml:lang="en">Maintainable Item Role = def. Role a Material Artifact has when participating in the maintenance management process</IOFAnnotationVocabulary:semi-formalNaturalLanguageDefinition>
+        <rdfs:label xml:lang="en">Maintainable Item Role</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#MaintenanceState -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#MaintenanceState">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#Stasis"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#stateOf"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintainableItem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#stateOf"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintainableItem"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <IOFAnnotationVocabulary:directSource xml:lang="en">IOF Maintenance Working Group</IOFAnnotationVocabulary:directSource>
+        <IOFAnnotationVocabulary:naturalLanguageDefinition xml:lang="en">Stasis that holds during a temporal interval when the realizable functions and capabilities of the participating item, or the grade of realization of those functions and capabilities, remain unchanged.</IOFAnnotationVocabulary:naturalLanguageDefinition>
+        <IOFAnnotationVocabulary:semi-formalNaturalLanguageDefinition xml:lang="en">TODO</IOFAnnotationVocabulary:semi-formalNaturalLanguageDefinition>
+        <rdfs:label xml:lang="en">Maintenance State</rdfs:label>
+        <skos:altLabel xml:lang="en">TODO??</skos:altLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#OffStasis -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#OffStasis">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintenanceState"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#Tier2StasisValuePartition"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#kindOf"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#OffStasis"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <owl:disjointWith rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#OnStasis"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#OnStasis -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#OnStasis">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintenanceState"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#Tier2StasisValuePartition"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#kindOf"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#OnStasis"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#OperateAt5StarEfficiencyProcess -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#OperateAt5StarEfficiencyProcess">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#FunctioningProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#OperateAtFiveStarEfficiency -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#OperateAtFiveStarEfficiency">
+        <rdfs:subClassOf rdf:resource="http://www.industrialontologies.org/core/Capability"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#disabledBy"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#DegradedStasis"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#FailedStasis"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#OffStasis"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#typeDisabledBy"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#DegradedStasis"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#functionallyDependsOn"/>
+                <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#WashClothes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#OperatingStasis -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#OperatingStasis">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintenanceState"/>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#Tier1StasisValuePartition"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#kindOf"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#OperatingStasis"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#PrimaryFunction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#PrimaryFunction">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000034"/>
+        <IOFAnnotationVocabulary:directSource xml:lang="en">SAE International, A Guide to the Reliability-Centered Maintenance (RCM) Standard,Standard SAE JA1012, SAE International, 2018</IOFAnnotationVocabulary:directSource>
+        <IOFAnnotationVocabulary:naturalLanguageDefinition xml:lang="en">Function(s) which constitute the main reason(s) why a physical asset or system is acquired by its owner or user</IOFAnnotationVocabulary:naturalLanguageDefinition>
+        <rdfs:label xml:lang="en">Primary Function</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#Stasis -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#Stasis">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+        <IOFAnnotationVocabulary:directSource xml:lang="en">Natural language definition from Guarino (JOWO 2019)
+Semi formal definition from CCO</IOFAnnotationVocabulary:directSource>
+        <IOFAnnotationVocabulary:naturalLanguageDefinition xml:lang="en">Actual occurrences of situations which are temporally located and unchanging</IOFAnnotationVocabulary:naturalLanguageDefinition>
+        <IOFAnnotationVocabulary:semi-formalNaturalLanguageDefinition xml:lang="en">A process in which a BFO independent continuant endures across some temporal region and bears some BFO dependent continuant that does not change in kind or intensity</IOFAnnotationVocabulary:semi-formalNaturalLanguageDefinition>
+        <rdfs:label xml:lang="en">Stasis</rdfs:label>
+        <skos:altLabel xml:lang="en">State</skos:altLabel>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#Tier1StasisValuePartition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#Tier1StasisValuePartition">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#DegradedStasis"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#FailedStasis"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#OperatingStasis"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintenanceState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#Tier2StasisValuePartition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#Tier2StasisValuePartition">
+        <owl:equivalentClass>
+            <owl:Class>
+                <owl:unionOf rdf:parseType="Collection">
+                    <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#OffStasis"/>
+                    <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#OnStasis"/>
+                </owl:unionOf>
+            </owl:Class>
+        </owl:equivalentClass>
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintenanceState"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#TurnOff -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#TurnOff">
+        <rdfs:subClassOf rdf:resource="http://www.industrialontologies.org/core/Capability"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#disabledBy"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#FailedStasis"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#OffStasis"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#typeDisabledBy"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#FailedStasis"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#typeDisabledBy"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#OffStasis"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#TurnOffProcess -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#TurnOffProcess">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#FunctioningProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#TurnOn -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#TurnOn">
+        <rdfs:subClassOf rdf:resource="http://www.industrialontologies.org/core/Capability"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#disabledBy"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#FailedStasis"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#OnStasis"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#typeDisabledBy"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#FailedStasis"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#typeDisabledBy"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#OnStasis"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#TurnOnProcess -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#TurnOnProcess">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#FunctioningProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#UndesireableDisposition -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#UndesireableDisposition">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000016"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#UnrealizeableProcess -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#UnrealizeableProcess">
+        <rdfs:subClassOf rdf:resource="http://purl.obolibrary.org/obo/BFO_0000015"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#WashClothes -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#WashClothes">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#PrimaryFunction"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000054"/>
+                <owl:allValuesFrom rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#WashClothesProcess"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#disabledBy"/>
+                <owl:allValuesFrom>
+                    <owl:Class>
+                        <owl:unionOf rdf:parseType="Collection">
+                            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#FailedStasis"/>
+                            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#OffStasis"/>
+                        </owl:unionOf>
+                    </owl:Class>
+                </owl:allValuesFrom>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#typeDisabledBy"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#FailedStasis"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#typeDisabledBy"/>
+                <owl:hasValue rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#OffStasis"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#WashClothesProcess -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#WashClothesProcess">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#FunctioningProcess"/>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#WashingMachine -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/stasis-ontology-filter#WashingMachine">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintainableItem"/>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000196"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#OperateAtFiveStarEfficiency"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000196"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#TurnOff"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000196"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#TurnOn"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://purl.obolibrary.org/obo/BFO_0000196"/>
+                <owl:someValuesFrom rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#WashClothes"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#hasState"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#Tier1StasisValuePartition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <rdfs:subClassOf>
+            <owl:Restriction>
+                <owl:onProperty rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#hasState"/>
+                <owl:maxQualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxQualifiedCardinality>
+                <owl:onClass rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#Tier2StasisValuePartition"/>
+            </owl:Restriction>
+        </rdfs:subClassOf>
+        <IOFAnnotationVocabulary:naturalLanguageDefinition xml:lang="en">def. machine whose function is realized in a washing process.</IOFAnnotationVocabulary:naturalLanguageDefinition>
+        <rdfs:label xml:lang="en">Washing Machine</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#DegradedStasis -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#DegradedStasis"/>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#FailedStasis -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#FailedStasis"/>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#OffStasis -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#OffStasis"/>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#OnStasis -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#OnStasis"/>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#OperatingStasis -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#OperatingStasis"/>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#TurnOff -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#TurnOff"/>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#TurnOffProcess -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#TurnOffProcess"/>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#TurnOn -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#TurnOn"/>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#TurnOnProcess -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#TurnOnProcess"/>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#WashClothes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#WashClothes"/>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#WashClothesProcess -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#WashClothesProcess"/>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#degraded_stasis -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#degraded_stasis">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#DegradedStasis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#degraded_state_003 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#degraded_state_003">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#DegradedStasis"/>
+        <stasis-ontology-filter:stateOf rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#washing_machine_003"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#failed_stasis -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#failed_stasis">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#FailedStasis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#off_stasis -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#off_stasis">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#OffStasis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#on_stasis -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#on_stasis">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#OnStasis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#on_state_003 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#on_state_003">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#OnStasis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#operate_at_5_star_efficiency -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#operate_at_5_star_efficiency">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#OperateAtFiveStarEfficiency"/>
+        <stasis-ontology-filter:functionallyDependsOn rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#operate_at_5_star_efficiency_B -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#operate_at_5_star_efficiency_B">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#OperateAtFiveStarEfficiency"/>
+        <stasis-ontology-filter:functionallyDependsOn rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_B"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#operate_at_5_star_efficiency_C -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#operate_at_5_star_efficiency_C">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#OperateAtFiveStarEfficiency"/>
+        <stasis-ontology-filter:functionallyDependsOn rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_C"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#operate_at_5_star_efficiency_process -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#operate_at_5_star_efficiency_process">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#OperateAt5StarEfficiencyProcess"/>
+        <obo:BFO_0000055 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#operate_at_5_star_efficiency"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#operate_at_5_star_efficiency_process_B -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#operate_at_5_star_efficiency_process_B">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#OperateAt5StarEfficiencyProcess"/>
+        <obo:BFO_0000055 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#operate_at_5_star_efficiency_B"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#operating_stasis -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#operating_stasis">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#OperatingStasis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#turn_off -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#turn_off">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#TurnOff"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#turn_off_B -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#turn_off_B">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#TurnOff"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#turn_off_C -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#turn_off_C">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#TurnOff"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#turn_off_process -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#turn_off_process">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#TurnOffProcess"/>
+        <obo:BFO_0000055 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#turn_off"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#turn_off_process_B -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#turn_off_process_B">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#TurnOffProcess"/>
+        <obo:BFO_0000055 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#turn_off_B"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#turn_on -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#turn_on">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#TurnOn"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#turn_on_B -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#turn_on_B">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#TurnOn"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#turn_on_C -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#turn_on_C">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#TurnOn"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#turn_on_process -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#turn_on_process">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#TurnOnProcess"/>
+        <obo:BFO_0000055 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#turn_on"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#turn_on_process_B -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#turn_on_process_B">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#TurnOnProcess"/>
+        <obo:BFO_0000055 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#turn_on_B"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#wash_clothes -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#WashClothes"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_B -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_B">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#WashClothes"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_C -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_C">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#WashClothes"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_process -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_process">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#WashClothesProcess"/>
+        <obo:BFO_0000055 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes"/>
+        <obo:BFO_0000167 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#washing_machine_001"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_process_B -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_process_B">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#WashClothesProcess"/>
+        <obo:BFO_0000055 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_B"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_process_C -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_process_C">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#WashClothesProcess"/>
+        <obo:BFO_0000055 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_C"/>
+        <obo:BFO_0000167 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#washing_machine_003"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#washing_machine_001 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#washing_machine_001">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#WashingMachine"/>
+        <obo:BFO_0000056 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#operate_at_5_star_efficiency_process"/>
+        <obo:BFO_0000056 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#turn_off_process"/>
+        <obo:BFO_0000056 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#turn_on_process"/>
+        <obo:BFO_0000056 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_process"/>
+        <obo:BFO_0000196 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#operate_at_5_star_efficiency"/>
+        <obo:BFO_0000196 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#turn_off"/>
+        <obo:BFO_0000196 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#turn_on"/>
+        <obo:BFO_0000196 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes"/>
+        <stasis-ontology-filter:hasState rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#degraded_stasis"/>
+        <stasis-ontology-filter:hasState rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#off_stasis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#washing_machine_002 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#washing_machine_002">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#WashingMachine"/>
+        <obo:BFO_0000056 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#operate_at_5_star_efficiency_process_B"/>
+        <obo:BFO_0000056 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#turn_off_process_B"/>
+        <obo:BFO_0000056 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#turn_on_process_B"/>
+        <obo:BFO_0000056 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_process_B"/>
+        <obo:BFO_0000196 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#operate_at_5_star_efficiency_B"/>
+        <obo:BFO_0000196 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#turn_off_B"/>
+        <obo:BFO_0000196 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#turn_on_B"/>
+        <obo:BFO_0000196 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_B"/>
+        <stasis-ontology-filter:hasState rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#failed_stasis"/>
+        <stasis-ontology-filter:hasState rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#on_stasis"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- http://www.semanticweb.org/stasis-ontology-filter#washing_machine_003 -->
+
+    <owl:NamedIndividual rdf:about="http://www.semanticweb.org/stasis-ontology-filter#washing_machine_003">
+        <rdf:type rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#WashingMachine"/>
+        <core:RO_0000085 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_C"/>
+        <core:RO_0000091 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#operate_at_5_star_efficiency_C"/>
+        <core:RO_0000091 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#turn_off_C"/>
+        <core:RO_0000091 rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#turn_on_C"/>
+        <stasis-ontology-filter:hasState rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#degraded_state_003"/>
+        <stasis-ontology-filter:hasState rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#on_state_003"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#DegradedStasis">
+        <IOFAnnotationVocabulary:naturalLanguageDefinition xml:lang="en">State of reduced ability of an item to perform as required, but with acceptable reduced performance</IOFAnnotationVocabulary:naturalLanguageDefinition>
+        <rdfs:label xml:lang="en">Degraded State</rdfs:label>
+        <skos:altLabel xml:lang="en">Degraded Stasis</skos:altLabel>
+        <IOFAnnotationVocabulary:directSource xml:lang="en">EN13306, 2017</IOFAnnotationVocabulary:directSource>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#FailedStasis">
+        <IOFAnnotationVocabulary:directSource xml:lang="en">EN 13306, 2017</IOFAnnotationVocabulary:directSource>
+        <IOFAnnotationVocabulary:naturalLanguageDefinition xml:lang="en">State of an item being unable to perform a required functiondue to preventive maintenance or a fault</IOFAnnotationVocabulary:naturalLanguageDefinition>
+        <skos:altLabel xml:lang="en">Down state</skos:altLabel>
+        <rdfs:label xml:lang="en">Failed State</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#OffStasis">
+        <IOFAnnotationVocabulary:naturalLanguageDefinition xml:lang="en">State of an item when there is no electric power supplied</IOFAnnotationVocabulary:naturalLanguageDefinition>
+        <rdfs:label xml:lang="en">Off State</rdfs:label>
+        <skos:altLabel xml:lang="en">Off Stasis</skos:altLabel>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#OnStasis">
+        <rdfs:label xml:lang="en">On State</rdfs:label>
+        <IOFAnnotationVocabulary:naturalLanguageDefinition xml:lang="en">State of an item when there is electric power supplied</IOFAnnotationVocabulary:naturalLanguageDefinition>
+        <skos:altLabel xml:lang="en">On Stasis</skos:altLabel>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#OperatingStasis">
+        <rdfs:label xml:lang="en">Operating State</rdfs:label>
+        <skos:altLabel xml:lang="en">Up state</skos:altLabel>
+        <IOFAnnotationVocabulary:directSource xml:lang="en">EN 13306, 2017</IOFAnnotationVocabulary:directSource>
+        <IOFAnnotationVocabulary:naturalLanguageDefinition xml:lang="en">State of an item being able to perform a required function,assuming that the external resources, if required, are provided</IOFAnnotationVocabulary:naturalLanguageDefinition>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#WashClothes">
+        <rdfs:label xml:lang="en">to Wash Clothes</rdfs:label>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#WashClothesProcess">
+        <rdfs:label>Washing Clothes</rdfs:label>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // General axioms
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#degraded_stasis"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#degraded_state_003"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#failed_stasis"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#off_stasis"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#on_stasis"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#on_state_003"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#operate_at_5_star_efficiency_process"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#operate_at_5_star_efficiency_process_B"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#operating_stasis"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#turn_off_process"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#turn_off_process_B"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#turn_on_process"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#turn_on_process_B"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_process"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_process_B"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_process_C"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#degraded_state_003"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#operating_stasis"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#on_stasis"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#on_state_003"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#operate_at_5_star_efficiency"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#operate_at_5_star_efficiency_B"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#operate_at_5_star_efficiency_C"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#operate_at_5_star_efficiency_process"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#operate_at_5_star_efficiency_process_B"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#turn_off"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#turn_off_B"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#turn_off_C"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#turn_off_process"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#turn_off_process_B"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#turn_on"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#turn_on_B"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#turn_on_C"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#turn_on_process"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#turn_on_process_B"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_B"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_C"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_process"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_process_B"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#wash_clothes_process_C"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    <rdf:Description>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDifferent"/>
+        <owl:distinctMembers rdf:parseType="Collection">
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#washing_machine_001"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#washing_machine_002"/>
+            <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology-filter#washing_machine_003"/>
+        </owl:distinctMembers>
+    </rdf:Description>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Rules
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology#i">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology#s">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology#f">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology#sKind">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology#x">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology#p">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology#c">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description rdf:about="http://www.semanticweb.org/stasis-ontology#t">
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Variable"/>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">OperateAt5Star disabledBy DegradedStasis</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#hasState"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#i"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#DegradedStasis"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintainableItem"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#i"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#OperateAtFiveStarEfficiency"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000196"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#i"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#disabledBy"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TurnOff disabledBy FailedStasis</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#hasState"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#i"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintainableItem"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#i"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000196"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#i"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#FailedStasis"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#TurnOff"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#disabledBy"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TurnOn disabledBy FailedStasis</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#TurnOn"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#hasState"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#i"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintainableItem"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#i"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000196"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#i"/>
+                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#FailedStasis"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#disabledBy"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WashClothes disabledBy FailedStasis</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#hasState"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#i"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#WashClothes"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintainableItem"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#i"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000196"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#i"/>
+                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#FailedStasis"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#disabledBy"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TurnOff disabledBy OffStasis</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#hasState"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#i"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#OffStasis"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintainableItem"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#i"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000196"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#i"/>
+                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#TurnOff"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#disabledBy"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">WashClothes disabledBy OffStasis</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#hasState"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#i"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#OffStasis"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#WashClothes"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintainableItem"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#i"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000196"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#i"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#disabledBy"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">TurnOn disabledBy OnStasis</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#OnStasis"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#TurnOn"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#hasState"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#i"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintainableItem"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#i"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000196"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#i"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#disabledBy"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">[function/capability] disabledBy [state]</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#hasState"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#i"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintainableItem"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#i"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000196"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#i"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#typeDisabledBy"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#sKind"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                                <rdf:first>
+                                                    <rdf:Description>
+                                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#kindOf"/>
+                                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#sKind"/>
+                                                    </rdf:Description>
+                                                </rdf:first>
+                                                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                            </rdf:Description>
+                                        </rdf:rest>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#disabledBy"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">unableToParticiapteIn</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintainableItem"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#x"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#x"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#p"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#p"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#disabledBy"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#unableToParticipateIn"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#x"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#p"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">UnrealizeableProcess rule</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintainableItem"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#x"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000056"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#x"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#p"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000055"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#p"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#hasDisabledDisposition"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#x"/>
+                                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                        <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#UnrealizeableProcess"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#p"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">hasDisabledDisposition Rule</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#disabledBy"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#hasState"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#x"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#s"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                <rdf:first>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                        <swrl:propertyPredicate rdf:resource="http://purl.obolibrary.org/obo/BFO_0000196"/>
+                                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#x"/>
+                                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                                    </rdf:Description>
+                                </rdf:first>
+                                <rdf:rest>
+                                    <rdf:Description>
+                                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                                        <rdf:first>
+                                            <rdf:Description>
+                                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#ClassAtom"/>
+                                                <swrl:classPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#MaintainableItem"/>
+                                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#x"/>
+                                            </rdf:Description>
+                                        </rdf:first>
+                                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                                    </rdf:Description>
+                                </rdf:rest>
+                            </rdf:Description>
+                        </rdf:rest>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#hasDisabledDisposition"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#x"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">If a capability is dependent on a function, it is disabled when the function is disabled.</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">functionally dependent capabilities inherit disabledBy</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#functionallyDependsOn"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#c"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#disabledBy"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#t"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#disabledBy"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#c"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+    <rdf:Description>
+        <swrla:isRuleEnabled rdf:datatype="http://www.w3.org/2001/XMLSchema#boolean">true</swrla:isRuleEnabled>
+        <rdfs:comment rdf:datatype="http://www.w3.org/2001/XMLSchema#string">If a capability is dependent on a function, it is disabled by the same state types as the function.</rdfs:comment>
+        <rdfs:label rdf:datatype="http://www.w3.org/2001/XMLSchema#string">functionally dependent capabilities inherit typeDisabledBy</rdfs:label>
+        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#Imp"/>
+        <swrl:body>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#functionallyDependsOn"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#c"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                        <rdf:first>
+                            <rdf:Description>
+                                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                                <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#typeDisabledBy"/>
+                                <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#f"/>
+                                <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#t"/>
+                            </rdf:Description>
+                        </rdf:first>
+                        <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+                    </rdf:Description>
+                </rdf:rest>
+            </rdf:Description>
+        </swrl:body>
+        <swrl:head>
+            <rdf:Description>
+                <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#AtomList"/>
+                <rdf:first>
+                    <rdf:Description>
+                        <rdf:type rdf:resource="http://www.w3.org/2003/11/swrl#IndividualPropertyAtom"/>
+                        <swrl:propertyPredicate rdf:resource="http://www.semanticweb.org/stasis-ontology-filter#typeDisabledBy"/>
+                        <swrl:argument1 rdf:resource="http://www.semanticweb.org/stasis-ontology#c"/>
+                        <swrl:argument2 rdf:resource="http://www.semanticweb.org/stasis-ontology#t"/>
+                    </rdf:Description>
+                </rdf:first>
+                <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+            </rdf:Description>
+        </swrl:head>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
